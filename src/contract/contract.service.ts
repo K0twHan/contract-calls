@@ -45,7 +45,8 @@ export class ContractService {
         const signedTx = await this.web3.eth.accounts.signTransaction(tx, process.env.PRIVATE_KEY);
         const receipt = await this.web3.eth.sendSignedTransaction(signedTx.rawTransaction as string);
         console.log(receipt);
-        return receipt
+        //return receipt.transactionHash;
+        return this.GetNumber();
     }
 
     async UpdateWord( kelime : WordDto) {
@@ -68,7 +69,8 @@ export class ContractService {
         const receipt = await this.web3.eth.sendSignedTransaction(signedTx.rawTransaction as string);
 
 
-        return receipt;
+        //return receipt.transactionHash;
+        return this.GetWord();
     }
 
 
